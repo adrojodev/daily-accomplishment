@@ -1,0 +1,14 @@
+---
+import Button from "./Button";
+
+const { title, cancel, buttonText } = Astro.props;
+---
+
+<div>
+  <div>
+    <h1>{title}</h1>
+    <p><slot /></p>
+    <Button>{buttonText ? `${buttonText}` : "Okay"}</Button>
+    {cancel ? <Button text>Cancel</Button> : null}
+  </div>
+</div>

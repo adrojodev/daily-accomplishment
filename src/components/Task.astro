@@ -1,0 +1,10 @@
+---
+const { emoji } = Astro.props;
+---
+
+<div
+  class="bg-gray-200 flex justify-center text-center px-4 py-2 rounded-full gap-2"
+>
+  <p>{emoji}</p>
+  <p><slot /></p>
+</div>

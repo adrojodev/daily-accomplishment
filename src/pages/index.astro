@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Task from "../components/Task.astro";
+import Button from "../components/Button.jsx";
+
+const tasks = [
+  { emoji: "⏰", text: "20 minutes" },
+  { emoji: "🛌", text: "A bed" },
+  { emoji: "😎", text: "Attitude" },
+];
+
+function test() {
+  console.log("hello");
+}
+---
+
+<Layout title="Today task">
+  <main class="container flex flex-col items-center gap-8">
+    <div class="flex flex-col items-center">
+      <h3 class="text-sm">Become better, complete a task today</h3>
+      <h1 class="text-3xl font-bold">What you need for today task?</h1>
+    </div>
+    <div class="flex flex-col items-center gap-3">
+      {
+        tasks.map((task) => {
+          return <Task emoji={task.emoji}>{task.text}</Task>;
+        })
+      }
+    </div>
+    <div class="flex flex-col gap-2">
+      <Button
+        className="bg-purple-600 text-lg text-white"
+        handleClick="startTimer"
+        client:load
+      >
+        Start task
+      </Button>
+      <Button className="text-sm" handleClick="showModal" text client:load>
+        What is this?
+      </Button>
+    </div>
+  </main>
+</Layout>

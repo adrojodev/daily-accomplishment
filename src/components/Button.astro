@@ -1,0 +1,16 @@
+---
+const { style, text, handleClick } = Astro.props;
+---
+
+<button
+  class={text
+    ? `bg-transparent hover:underline ${style}`
+    : `${style} px-5 py-2 rounded-full shadow-md font-bold hover:bg-opacity-90 hover:shadow-lg hover:scale-105 active:scale-95 active:shadow-sm transition-all`}
+>
+  <slot />
+</button>
+<script>
+  function handleClick() {
+    handleClick;
+  }
+</script>
